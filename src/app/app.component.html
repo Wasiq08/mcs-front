@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <span>User Hobbies</span>
+</mat-toolbar>
+
+<div class="row">
+  <div class="column">
+    <app-user (userSelected)="selectedUser($event)" [users]="users"></app-user>
+  </div>
+  <div class="column">
+    <app-hobby [selectedUser]="userSelected"></app-hobby>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>

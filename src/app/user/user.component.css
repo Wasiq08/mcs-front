@@ -1,0 +1,8 @@
+.mat-list.make-scrollable {
+    height: 600px; 
+    overflow-y: scroll;
+}
+
+.is-active {
+    background-color: red;
+}

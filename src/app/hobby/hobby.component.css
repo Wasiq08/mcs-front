@@ -1,0 +1,9 @@
+.show{
+    display: inline;
+}
+.hide{
+    display: none;
+}
+.list{
+    width: 600px;
+}

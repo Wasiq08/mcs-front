@@ -1,0 +1,47 @@
+<div [ngClass]="(isUserSelected == true) ? 'show':'hide'">
+
+    <mat-form-field disabled=true>
+        <mat-label>Select Passion Level</mat-label>
+        <mat-select [(ngModel)]="hobby.passionLevel" name="passion">
+            <mat-option *ngFor="let p of passion" [value]="p.value">
+                {{p.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter user hobby" value="Sushi" [(ngModel)]="hobby.name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter year" value="Sushi" [(ngModel)]="hobby.year">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="addHobby()">Add</button>
+
+    <div>
+        <table mat-table [dataSource]="dataSource" class=" list mat-elevation-z8">
+
+            <ng-container matColumnDef="Passion Level">
+                <th mat-header-cell *matHeaderCellDef> Passion </th>
+                <td mat-cell *matCellDef="let element"> {{element.passionLevel}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Hobby">
+                <th mat-header-cell *matHeaderCellDef> Hobby </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Year">
+                <th mat-header-cell *matHeaderCellDef> Year </th>
+                <td mat-cell *matCellDef="let element"> {{element.year}}
+                    <button mat-raised-button color="primary" (click)="deleteHobby(element)">Delete</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+</div>
